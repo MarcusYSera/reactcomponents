@@ -6,20 +6,22 @@ class App extends Component {
   state = { open: false };
 
   componentDidMount() {
-    document.addEventListener('mousedown', this.clickedOutside);
+    document.addEventListener('mouseup', this.clickedOutside);
   }
 
   componentWillUnmount() {
-    document.removeEventListener('mousedown', this.clickedOutside);
+    document.removeEventListener('mouseup', this.clickedOutside);
   }
 
   setWrapperRef = (e) => {
-    // console.log('burger menu');
+    console.log('setWrapperRef');
     this.wrapperRef = e;
   };
 
   clickedOutside = (e) => {
+    // console.log('clickedOutside');
     if (this.wrapperRef && !this.wrapperRef.contains(e.target)) {
+      console.log('clickingoutside triggered');
       this.setState({
         open: false,
       });
@@ -27,13 +29,16 @@ class App extends Component {
   };
 
   openDropDown = () => {
+    console.log('opendropdown');
     const { open } = this.state;
     let answer = false;
     if (open === false) {
-      answer = open === false ? true : answer;
+      // answer = open === false ? true : answer;
+      answer = true;
     }
     if (open === true) {
-      answer = open === true ? answer : true;
+      // answer = open === true ? answer : true;
+      answer = false;
     }
     this.setState({
       open: answer,
@@ -45,13 +50,9 @@ class App extends Component {
     return (
       <div className="dropdownwrapper">
         <div className="dropdownheader">
-          <i
-            className="bars icon"
-            onClick={this.openDropDown}
-            ref={this.setWrapperRef}
-          />
+          <i className="bars icon" onClick={this.openDropDown} />
         </div>
-        {open === true ? (
+        {open ? (
           <ul ref={this.setWrapperRef} className="dropdownlistwrapper">
             <li className="dropdownitem">contents</li>
           </ul>
