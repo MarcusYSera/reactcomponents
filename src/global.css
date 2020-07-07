@@ -1,0 +1,15 @@
+.wrapper {
+  display: inline-block;
+}
+
+ul{
+  padding-left: 500ps;
+  max-width: 100%;
+  overflow-x: hidden;
+  transition: 0.5s;
+  border: none;
+}
+
+li{
+  
+}
