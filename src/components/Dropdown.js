@@ -2,64 +2,54 @@ import React, { Component } from 'react';
 
 import '../global.css';
 
-class App extends Component {
+class Dropdown extends Component {
   state = { open: false };
 
-  componentDidMount() {
-    document.addEventListener('mouseup', this.clickedOutside);
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener('mouseup', this.clickedOutside);
-  }
-
-  setWrapperRef = (e) => {
-    console.log('setWrapperRef');
-    this.wrapperRef = e;
+  clickDropdown = () => {
+    const { open } = this.state;
+    if (!open) {
+      document.addEventListener('click', this.clickedOutside, false);
+    } else {
+      document.removeEventListener('click', this.clickedOutside, false);
+    }
+    this.setState((previous) => ({
+      open: !previous.open,
+    }));
   };
 
   clickedOutside = (e) => {
-    // console.log('clickedOutside');
-    if (this.wrapperRef && !this.wrapperRef.contains(e.target)) {
-      console.log('clickingoutside triggered');
-      this.setState({
-        open: false,
-      });
+    if (this.wrapper.contains(e.target)) {
+      return;
     }
-  };
-
-  openDropDown = () => {
-    console.log('opendropdown');
-    const { open } = this.state;
-    let answer = false;
-    if (open === false) {
-      // answer = open === false ? true : answer;
-      answer = true;
-    }
-    if (open === true) {
-      // answer = open === true ? answer : true;
-      answer = false;
-    }
-    this.setState({
-      open: answer,
-    });
+    this.clickDropdown();
   };
 
   render() {
     const { open } = this.state;
     return (
       <div className="dropdownwrapper">
-        <div className="dropdownheader">
-          <i className="bars icon" onClick={this.openDropDown} />
+        <div
+          ref={(wrapper) => {
+            this.wrapper = wrapper;
+          }}
+        >
+          <i
+            role="button"
+            tabIndex={0}
+            className="bars icon"
+            onClick={this.clickDropdown}
+            onKeyDown={this.clickDropdown}
+          />
+          {open && (
+            <ul>
+              <li>item 1</li>
+              <li>item 2</li>
+            </ul>
+          )}
         </div>
-        {open ? (
-          <ul ref={this.setWrapperRef} className="dropdownlistwrapper">
-            <li className="dropdownitem">contents</li>
-          </ul>
-        ) : null}
       </div>
     );
   }
 }
 
-export default App;
+export default Dropdown;
