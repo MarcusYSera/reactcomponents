@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactCSSTransitionGroup from 'react-transition-group';
 
 class Animation extends Component {
   state = {};
@@ -7,6 +8,7 @@ class Animation extends Component {
     return (
       <div>
         <h1>Animation</h1>
+        <ReactCSSTransitionGroup />
       </div>
     );
   }
