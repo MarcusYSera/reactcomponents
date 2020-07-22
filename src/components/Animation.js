@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { CSSTransitionGroup } from 'react-transition-group';
+import { TransitionGroup } from 'react-transition-group';
 
 class Animation extends Component {
   state = { items: ['hello', 'world', 'nom', 'nomers'] };
@@ -27,13 +27,13 @@ class Animation extends Component {
         <button type="button" onClick={this.handleAdd}>
           Add Item
         </button>
-        <CSSTransitionGroup
+        <TransitionGroup
           transitionName="example"
           transitionEnterTimeout={500}
           transitionLeaveTimeout={300}
         >
           {items}
-        </CSSTransitionGroup>
+        </TransitionGroup>
       </div>
     );
   }
