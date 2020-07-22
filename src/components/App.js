@@ -3,6 +3,7 @@ import React from 'react';
 import Dropdown from './Dropdown';
 import RadioButton from './RadioButton';
 import DatePickerMonthYear from './DatePickerMonthYear';
+import Animation from './Animation';
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
         <div className="column" />
         <div className="column">
           <h1>Animation</h1>
+          <Animation />
         </div>
       </div>
     </div>
