@@ -22,6 +22,12 @@ const App = () => {
           <DatePickerMonthYear />
         </div>
       </div>
+      <div className="four column centered row">
+        <div className="column" />
+        <div className="column">
+          <h1>Animation</h1>
+        </div>
+      </div>
     </div>
   );
 };
