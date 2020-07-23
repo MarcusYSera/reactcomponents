@@ -4,7 +4,6 @@ import Dropdown from './Dropdown';
 import RadioButton from './RadioButton';
 import DatePickerMonthYear from './DatePickerMonthYear';
 import Animation from './Animation';
-import Rain from './Rain';
 
 const App = () => {
   return (
@@ -34,8 +33,7 @@ const App = () => {
       <div className="four column centered row">
         <div className="column" />
         <div className="column">
-          <h1>Rain</h1>
-          <Rain />
+          <h1>Place Holder</h1>
         </div>
       </div>
     </div>

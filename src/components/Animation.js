@@ -5,18 +5,21 @@ class Animation extends Component {
   state = { items: ['hello', 'world', 'nom', 'nomers'] };
 
   handleAdd = () => {
-    const newItems = this.state.items.concat([prompt('Enter some text')]);
+    const { items } = this.state;
+    const newItems = items.concat([prompt('Enter some text')]);
     this.setState({ items: newItems });
   };
 
   handleRemove = (i) => {
-    const newItems = this.state.items.slice();
+    const { items } = this.state;
+    const newItems = items.slice();
     newItems.splice(i, 1);
     this.setState({ items: newItems });
   };
 
   render() {
-    const items = this.state.items.map((item, i) => (
+    const { items } = this.state;
+    const displayItems = items.map((item, i) => (
       <div key={item} onClick={() => this.handleRemove(i)}>
         {item}
       </div>
@@ -33,10 +36,10 @@ class Animation extends Component {
           transitionEnterTimeout={500}
           transitionLeaveTimeout={300}
         >
-          {items}
+          {displayItems}
         </CSSTransitionGroup>
         <h3>Transition</h3>
-        <TransitionGroup component="ul">{/* ... */}</TransitionGroup>
+        <TransitionGroup component="ul">{displayItems}</TransitionGroup>
       </div>
     );
   }
