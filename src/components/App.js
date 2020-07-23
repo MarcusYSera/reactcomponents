@@ -3,7 +3,7 @@ import React from 'react';
 import Dropdown from './Dropdown';
 import RadioButton from './RadioButton';
 import DatePickerMonthYear from './DatePickerMonthYear';
-import Animation from './Animation';
+import Transition from './Transition';
 
 const App = () => {
   return (
@@ -26,8 +26,8 @@ const App = () => {
       <div className="four column centered row">
         <div className="column" />
         <div className="column">
-          <h1>Animation</h1>
-          <Animation />
+          <h1>Transition</h1>
+          <Transition />
         </div>
       </div>
       <div className="four column centered row">

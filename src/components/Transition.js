@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { CSSTransitionGroup, TransitionGroup } from 'react-transition-group';
 
-class Animation extends Component {
+class Transition extends Component {
   state = { items: ['hello', 'world', 'nom', 'nomers'] };
 
   handleAdd = () => {
@@ -45,4 +45,4 @@ class Animation extends Component {
   }
 }
 
-export default Animation;
+export default Transition;
