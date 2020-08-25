@@ -1,44 +1,15 @@
 import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
 
-import Dropdown from './Dropdown';
-import RadioButton from './RadioButton';
-import DatePickerMonthYear from './DatePickerMonthYear';
-import Transition from './Transition';
-import MultipleSelect from './MultipleSelect';
+import ReactComponentHome from './reactcomponents/Home';
+import UniversalComponentHome from './universalcomponents/Home';
 
 const App = () => {
   return (
-    <div className="ui three column centered grid">
-      <div className="four column centered row">
-        <div className="column" />
-        <div className="column">
-          <h1>Dropdown</h1>
-          <Dropdown />
-        </div>
-        <div className="column">
-          <h1>Radio Button</h1>
-          <RadioButton />
-        </div>
-        <div className="column">
-          <h1>Date Picker w/Month Year</h1>
-          <DatePickerMonthYear />
-        </div>
-      </div>
-      <div className="four column centered row">
-        <div className="column" />
-        <div className="column">
-          <h1>Transition</h1>
-          <Transition />
-        </div>
-      </div>
-      <div className="four column centered row">
-        <div className="column" />
-        <div className="column">
-          <h1>Multiple Select</h1>
-          <MultipleSelect />
-        </div>
-      </div>
-    </div>
+    <BrowserRouter>
+        <Route path="/" exact component={UniversalComponentHome} />
+        <Route path="/reactcomponenthome" component={ReactComponentHome} />
+      </BrowserRouter>
   );
 };
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import '../global.css';
+import '../../global.css';
 
 class Dropdown extends Component {
   state = { open: false };

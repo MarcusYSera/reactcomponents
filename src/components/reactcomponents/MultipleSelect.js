@@ -38,12 +38,11 @@ class MultipleSelect extends Component {
           onBlur={this.handleBlur}
           className="ui fluid search dropdown"
           multiple
-          onMouseDown={this.mouseDownPress}
         >
-          <option value="" selected={sel}>
+          <option value="" selected={sel} onMouseDown={this.mouseDownPress}>
             Skills
           </option>
-          <option value="angular" selected={sel}>
+          <option value="angular" onMouseDown={this.mouseDownPress}>
             Angular
           </option>
           <option value="css">CSS</option>
