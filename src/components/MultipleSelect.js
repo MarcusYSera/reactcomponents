@@ -1,15 +1,10 @@
 import React, { Component } from 'react';
 
 class MultipleSelect extends Component {
-  state = { value: '' };
+  state = { value: '', sel: false };
 
   handleBlur = (event) => {
-    console.log('onBlur');
     this.setState({ value: event.target.value });
-  };
-
-  handleChange = () => {
-    console.log('onChange');
   };
 
   handleSubmit = (e) => {
@@ -18,8 +13,18 @@ class MultipleSelect extends Component {
     console.log(value);
   };
 
+  mouseDownPress = (e) => {
+    const { sel } = this.state;
+    e.preventDefault();
+    const x = !sel;
+    this.setState({
+      sel: x,
+    });
+    console.log('mouse down');
+  };
+
   render() {
-    const { value } = this.state;
+    const { sel } = this.state;
     return (
       // <button
       //   type="button"
@@ -31,11 +36,16 @@ class MultipleSelect extends Component {
         <select
           name="skills"
           onBlur={this.handleBlur}
-          // onChange={this.handleChange}
-          value={value}
+          className="ui fluid search dropdown"
+          multiple
+          onMouseDown={this.mouseDownPress}
         >
-          <option value="">Skills</option>
-          <option value="angular">Angular</option>
+          <option value="" selected={sel}>
+            Skills
+          </option>
+          <option value="angular" selected={sel}>
+            Angular
+          </option>
           <option value="css">CSS</option>
           <option value="design">Graphic Design</option>
           <option value="ember">Ember</option>
