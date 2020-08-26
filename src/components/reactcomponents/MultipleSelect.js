@@ -33,18 +33,20 @@ class MultipleSelect extends Component {
       //   onKeyDown={clickOpen}
       // >
       <form onSubmit={this.handleSubmit}>
+        <h4>
+          Come Back to work this out later, need to input each option value into a
+          map with true or false and save those values on each mouse down
+        </h4>
         <select
           name="skills"
           onBlur={this.handleBlur}
-          className="ui fluid search dropdown"
+          // className="ui fluid search dropdown"
           multiple
         >
           <option value="" selected={sel} onMouseDown={this.mouseDownPress}>
             Skills
           </option>
-          <option value="angular" onMouseDown={this.mouseDownPress}>
-            Angular
-          </option>
+          <option value="angular">Angular</option>
           <option value="css">CSS</option>
           <option value="design">Graphic Design</option>
           <option value="ember">Ember</option>

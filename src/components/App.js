@@ -7,9 +7,9 @@ import UniversalComponentHome from './universalcomponents/Home';
 const App = () => {
   return (
     <BrowserRouter>
-        <Route path="/" exact component={UniversalComponentHome} />
-        <Route path="/reactcomponenthome" component={ReactComponentHome} />
-      </BrowserRouter>
+      <Route path="/" exact component={UniversalComponentHome} />
+      <Route path="/reactcomponenthome" component={ReactComponentHome} />
+    </BrowserRouter>
   );
 };
 
